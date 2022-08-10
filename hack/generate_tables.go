@@ -32,6 +32,9 @@ func init() {
 
 var outputTemplate string = `package skip32_test
 
+/* GENERATED FILE - DO NOT EDIT */
+/* See hack/generate_tables.go */
+
 import (
 	"encoding/hex"
 	"testing"
@@ -118,7 +121,7 @@ func main() {
 	var (
 		sequentialKey *string = flag.String("key", "00998877665544332211", "Sequential test key")
 		sequentialCount *int = flag.Int("sequential", 10000, "How many sequential tests to generate")
-		randomCount *int = flag.Int("random", 100, "How many random tests to generate")
+		randomCount *int = flag.Int("random", 1000, "How many random tests to generate")
 	)
 	flag.Parse()
 
