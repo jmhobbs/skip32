@@ -1,7 +1,6 @@
 package skip32_test
 
 import (
-	"encoding/hex"
 	"testing"
 
 	"github.com/jmhobbs/skip32"
@@ -27,9 +26,7 @@ func TestSkip32Default(t *testing.T) {
 
 // https://github.com/alestic/Crypt-Skip32/blob/master/t/01basic.t
 func TestSkip32PerlSuite(t *testing.T) {
-	rawKey, _ := hex.DecodeString("DE2624BD4FFC4BF09DAB")
-	key := [10]byte{}
-	copy(key[:], rawKey)
+	key := [10]byte{0xDE, 0x26, 0x24, 0xBD, 0x4F, 0xFC, 0x4B, 0xF0, 0x9D, 0xAB}
 
 	tests := []struct{
 		Input uint32
