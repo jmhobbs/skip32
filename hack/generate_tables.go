@@ -155,7 +155,7 @@ func main() {
 		var i uint32 = 0
 		for {
 			i = rand.Uint32()
-			if i + uint32(*sequentialCount) > math.MaxUint32 {
+			if uint64(i) + uint64(*sequentialCount) > math.MaxUint32 {
 				continue
 			} else {
 				i = i + uint32(*sequentialCount)
