@@ -12,3 +12,25 @@ https://web.archive.org/web/20110819120213/http://www.qualcomm.com.au/Publicatio
 This cipher is useful for obfuscating 32-bit values in the same size output space.
 
 This can be useful for exposing an incremental ID externally without leaking sequence or value.
+
+## Usage
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/jmhobbs/skip32"
+)
+
+func main() {
+	key := [10]byte{0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09}
+	fmt.Println(skip32.Encrypt(key, 500))
+	// 499237320
+
+	anotherKey := skip32.KeyFromSlice([]byte("this is a string"))
+	fmt.Println(skip32.Encrypt(anotherKey, 500))
+	// 1928549585
+}
+```
